@@ -36,7 +36,7 @@ function getMovie(req, res) {
     }
 
     if (req.query.vote) {
-        let vote = parseFloat(vote)
+        let vote = parseFloat(req.query.avg_vote)
         response = response.filter(movie =>
             movie.avg >= vote)
     }
