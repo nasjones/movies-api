@@ -28,19 +28,17 @@ function getMovie(req, res) {
             movie.genre.toLowerCase().includes(req.query.genre.toLowerCase())
         )
     }
-
     if (req.query.country) {
         response = response.filter(movie =>
             movie.country.toLowerCase().includes(req.query.country.toLowerCase())
         )
     }
-
-    if (req.query.vote) {
+    if (req.query.avg_vote) {
         let vote = parseFloat(req.query.avg_vote)
         response = response.filter(movie =>
-            movie.avg >= vote)
+            movie.avg_vote >= vote
+        )
     }
-
     res.json(response)
 }
 
